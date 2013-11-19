@@ -1,5 +1,5 @@
 === Horizontal Meta ===
-Contributors: nathanfranklin
+Contributors: nathanfranklinau
 Author: Nathan Franklin
 Author URI: http://www.nathanfranklin.com.au
 Plugin URI: http://www.horizontalmeta.com/
@@ -7,7 +7,7 @@ Requires at least: 3.2
 Tested up to: 3.7.1
 Stable tag: trunk
 Homepage: http://www.horizontalmeta.com/
-Version: 2.0b free
+Version: 2.0b
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
