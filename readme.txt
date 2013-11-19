@@ -11,7 +11,7 @@ Version: 2.0b free
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Give WordPress meta queries a performance kick. Change the structure of important meta data fields to a horizontal/relational structure to overcome the performance restrictions that exist in the current meta structure.
+Change the structure of important meta data fields to a horizontal/relational structure and give WordPress meta queries a performance kick.
 
 == Description ==
 Give WordPress meta queries a performance kick. Change the structure of important meta data fields to a horizontal/relational structure to overcome the performance restrictions that exist in the current meta structure.
@@ -92,7 +92,7 @@ A. The beta 2.0 version allows you to create upto 10 post mappings and 10 user m
 
 == Changelog ==
 
-= 2.0b lite =
+= 2.0b free =
 * Public Release
 
 = 1.0b lite =
