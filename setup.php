@@ -10,12 +10,11 @@ defined( 'ABSPATH' ) OR exit;
  * @param $lib
  * @param $log
  */
-function hm_clear_mappings($blog_id, $lib, $log) {
+function hm_clear_mappings($blog_id, $lib) {
 
 	// do posts
 	$post_mappings = $lib->get_post_mappings();
 	foreach($post_mappings as $meta_key => $mapping) {
-//		$log->add_to_log("Restoring post mapping: " . $meta_key);
 		$lib->delete_assigned_mapping("post", $meta_key, true);
 	}
 
@@ -26,14 +25,10 @@ function hm_clear_mappings($blog_id, $lib, $log) {
 		update_option("hm_postmeta_mappings_archive", $post_mappings);
 	}
 
-//	$log->add_to_log("Saving post mappings: ");
-//	$log->add_to_log(print_r($post_mappings, true));
-
 	if($blog_id == 1) {
 		$user_mappings = $lib->get_user_mappings();
 
 		foreach($user_mappings as $meta_key => $mapping) {
-//			$log->add_to_log("Restoring user mapping: " . $meta_key);
 			$lib->delete_assigned_mapping("user", $meta_key, true);
 		}
 
@@ -44,21 +39,15 @@ function hm_clear_mappings($blog_id, $lib, $log) {
 			update_option("hm_usermeta_mappings_archive", $user_mappings);
 		}
 
-//		$log->add_to_log("Saving user mappings: ");
-//		$log->add_to_log(print_r($user_mappings, true));
-
 	}
 
 }
 
-function hm_reinstate_data($current_blog_id, $mappings_lib, $log_lib) {
+function hm_reinstate_data($current_blog_id, $mappings_lib) {
 	global $wpdb;
 
 	// Reinstate Post Data
 	$archived_post_mappings = maybe_unserialize(get_option("hm_postmeta_mappings_archive"));
-
-//	$log_lib->add_to_log("Post mappings to restore:");
-//	$log_lib->add_to_log(print_r($archived_post_mappings, true));
 
 	if(!empty($archived_post_mappings)) {
 		foreach($archived_post_mappings as $meta_key => $mapping) {
@@ -67,10 +56,8 @@ function hm_reinstate_data($current_blog_id, $mappings_lib, $log_lib) {
 				$error_message = "";
 				$result = $mappings_lib->assign_manual_mapping("post", $meta_key, $mapping["data_type"], $index, true, true, $error_message);
 				if(empty($result)) {
-//					$log_lib->add_to_log("Post: " . $meta_key . " could not be reinstated. Could not re-map key: " . $error_message . " " . print_r($mapping, true) . "\n");
 				}
 			} else {
-//				$log_lib->add_to_log("Post: " . $meta_key . " could not be reinstated. Invalid configuration: " . print_r($mapping, true) . "\n");
 			}
 		}
 	}
@@ -79,9 +66,6 @@ function hm_reinstate_data($current_blog_id, $mappings_lib, $log_lib) {
 		// Reinstate User data
 		$archived_user_mappings = maybe_unserialize(get_option("hm_usermeta_mappings_archive"));
 
-//		$log_lib->add_to_log("User mappings to restore:");
-//		$log_lib->add_to_log(print_r($archived_user_mappings, true));
-
 		if(!empty($archived_user_mappings)) {
 			foreach($archived_user_mappings as $meta_key => $mapping) {
 				$index = str_replace($mapping["data_type"], "", $mapping["column"]);
@@ -89,10 +73,8 @@ function hm_reinstate_data($current_blog_id, $mappings_lib, $log_lib) {
 					$error_message = "";
 					$result = $mappings_lib->assign_manual_mapping("user", $meta_key, $mapping["data_type"], $index, true, true, $error_message);
 					if(empty($result)) {
-//						$log_lib->add_to_log("User: " . $meta_key . " could not be reinstated. Could not re-map key: " . $error_message . " " . print_r($mapping, true) . "\n");
 					}
 				} else {
-//					$log_lib->add_to_log("User: " . $meta_key . " could not be reinstated. Invalid configuration: " . print_r($mapping, true) . "\n");
 				}
 			}
 		}
