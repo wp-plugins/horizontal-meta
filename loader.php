@@ -2,16 +2,13 @@
 /*
 Plugin Name: Horizontal Meta
 Plugin URI: http://wordpress.org/plugins/horizontal-meta/
-Description: Alters the way wordpress handles meta data to allow for queryable datatyped fields and performance.
-Version: 2.0b
+Description: Alters the way WordPress handles meta data to allow for query-able data-typed fields and performance.
+Version: 2.01b
 Author: Nathan Franklin
-Author URI: http://www.nathanfranklin.com.au
+Author URI: http://www.nathanfranklin.com.au/
 License:
 Network: true
 */
-
-ini_set("display_errors", "On");
-error_reporting(E_CORE_ERROR | E_CORE_WARNING | E_COMPILE_ERROR | E_ERROR | E_WARNING | E_PARSE | E_USER_ERROR | E_USER_WARNING | E_RECOVERABLE_ERROR );
 
 // General setup... getting plugin ready to load.
 
@@ -97,20 +94,21 @@ function horizontal_meta_deactivate() {
 	require_once plugin_dir_path( __FILE__ ) . "/setup.php";
 
 	$lib = new hm_mappings_library();
-	$log = new hm_log_library();
-
-	$log->new_grouping();
-	$log->add_to_log("/***************************\n *  Deactivating Plugin \n***************************/");
+	$log = false;
+//	$log = new hm_log_library();
+//
+//	$log->new_grouping();
+//	$log->add_to_log("/***************************\n *  Deactivating Plugin \n***************************/");
 
 	if(!current_user_can( 'activate_plugins')) {
-		$log->add_to_log("Could not deactivate plugin. User does not have permission.");
+//		$log->add_to_log("Could not deactivate plugin. User does not have permission.");
 		return;
 	}
 
 	$plugin = isset( $_REQUEST['plugin'] ) ? $_REQUEST['plugin'] : '';
 	check_admin_referer( "deactivate-plugin_{$plugin}" );
 
-	$log->add_to_log("Proceeding to deactivate plugin.");
+//	$log->add_to_log("Proceeding to deactivate plugin.");
 
 	// need to ensure we have enough time to run
 	set_time_limit(1800);
@@ -121,14 +119,14 @@ function horizontal_meta_deactivate() {
 
 		$blogids = $wpdb->get_col("SELECT blog_id FROM $wpdb->blogs");
 
-		$log->add_to_log("Multisite blogs to process:");
-		$log->add_to_log(print_r($blogids, true));
+//		$log->add_to_log("Multisite blogs to process:");
+//		$log->add_to_log(print_r($blogids, true));
 
 		foreach ($blogids as $blog_id) {
 			if($current_blog != $blog_id)
 				switch_to_blog($blog_id);
 
-			$log->add_to_log("Processing blog: " . $blog_id);
+//			$log->add_to_log("Processing blog: " . $blog_id);
 
 			// restore the meta data
 			hm_clear_mappings($blog_id, $lib, $log);
@@ -142,7 +140,7 @@ function horizontal_meta_deactivate() {
 		hm_clear_mappings(1, $lib, $log);
 	}
 
-	$log->add_to_log("Completed deactivation process.");
+//	$log->add_to_log("Completed deactivation process.");
 }
 
 /**
@@ -160,20 +158,21 @@ function horizontal_meta_activate() {
 	require_once plugin_dir_path( __FILE__ ) . "/setup.php";
 
 	$lib = new hm_mappings_library();
-	$log = new hm_log_library();
-
-	$log->new_grouping();
-	$log->add_to_log("/***************************\n *  Activating Plugin \n***************************/");
+	$log = false;
+//	$log = new hm_log_library();
+//
+//	$log->new_grouping();
+//	$log->add_to_log("/***************************\n *  Activating Plugin \n***************************/");
 
 	if(!current_user_can( 'activate_plugins')) {
-		$log->add_to_log("Could not activate plugin. User does not have permission.");
+//		$log->add_to_log("Could not activate plugin. User does not have permission.");
 		return;
 	}
 
 	$plugin = isset( $_REQUEST['plugin'] ) ? $_REQUEST['plugin'] : '';
 	check_admin_referer( "activate-plugin_{$plugin}" );
 
-	$log->add_to_log("Proceeding to activate plugin.");
+//	$log->add_to_log("Proceeding to activate plugin.");
 
 	// need to ensure we have enough time to run
 	set_time_limit(1800);
@@ -183,19 +182,19 @@ function horizontal_meta_activate() {
 
 		$blogids = $wpdb->get_col("SELECT blog_id FROM {$wpdb->blogs}");
 
-		$log->add_to_log("Multisite blogs to process:");
-		$log->add_to_log(print_r($blogids, true));
+//		$log->add_to_log("Multisite blogs to process:");
+//		$log->add_to_log(print_r($blogids, true));
 
 		foreach ($blogids as $blog_id) {
 			if($current_blog != $blog_id)
 				switch_to_blog($blog_id);
 
-			$log->add_to_log("Processing blog: " . $blog_id);
+//			$log->add_to_log("Processing blog: " . $blog_id);
 
 			// create our meta tables
 			create_hm_meta_tables($wpdb->prefix, $blog_id);
 
-			$log->add_to_log("Reinstating data.");
+//			$log->add_to_log("Reinstating data.");
 
 			// restore the data that was originally in the table from the meta tables
 			hm_reinstate_data($blog_id, $lib, $log);
@@ -205,7 +204,7 @@ function horizontal_meta_activate() {
 		}
 	} else {
 
-		$log->add_to_log("Single blog installation.");
+//		$log->add_to_log("Single blog installation.");
 
 		create_hm_meta_tables($wpdb->prefix);
 
@@ -213,7 +212,7 @@ function horizontal_meta_activate() {
 		hm_reinstate_data(1, $lib, $log);
 	}
 
-	$log->add_to_log("Completed activation process.");
+//	$log->add_to_log("Completed activation process.");
 
 }
 

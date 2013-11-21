@@ -112,7 +112,7 @@ class hm_query_library extends hmeta_library_base {
 
 		}
 
-		print_r($query);
+		//print_r($query);
 	}
 
 	public function extract_mapped_meta_keys($type, &$query_vars) {
