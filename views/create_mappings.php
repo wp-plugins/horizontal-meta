@@ -97,9 +97,9 @@
 						<select name="new_data_type">
 							<option value=""><?php _e("Select data type", 'horizontal-meta'); ?></option>
 							<?php
-							foreach($data_types as $item) {
+							foreach($data_types as $data_type=>$item) {
 								?>
-								<option value="<?php print $item; ?>" <?php print ($item==$new_data_type ? "selected" : ""); ?> ><?php print $item; ?></option>
+								<option value="<?php print $data_type; ?>" <?php print ($data_type==$new_data_type ? "selected" : ""); ?> ><?php print $item["label"]; ?></option>
 							<?php
 							}
 							?>

@@ -651,8 +651,7 @@ class hm_mappings_library extends hmeta_library_base {
 
 	public function get_data_type_list() {
 		$data_types = $this->get_data_types();
-		$output = array_keys($data_types);
-		return $output;
+		return $data_types;
 	}
 
 	private function get_meta_key_by_column($type, $column) {
@@ -789,7 +788,7 @@ class hm_mappings_library extends hmeta_library_base {
 		$data_types = $this->get_data_types();
 		$output = $data_types["string"];
 		if(array_key_exists($data_type, $data_types)) {
-			$output = $data_types[$data_type];
+			$output = $data_types[$data_type]["definition"];
 		}
 		return $output;
 	}
@@ -801,7 +800,10 @@ class hm_mappings_library extends hmeta_library_base {
 	 */
 	public function get_data_types() {
 		$data_types = array(
-			"string" => "varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL"
+			"string" => array(
+				"label" => "short text (255)",
+				"definition" => "varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL"
+			)
 		);
 
 		if(!is_plugin_active("horizontal-meta-extender/loader.php")) {
@@ -814,14 +816,18 @@ class hm_mappings_library extends hmeta_library_base {
 		// make sure there is no malicious statements in the datatypes definitions
 		$illegal = array("exec", "'", ";", "\"",":", "{", "}", "select", "update", "insert", "delete", "drop", "create", '%', '--', '/*', '*/', '[', ']');
 		foreach($data_types as $data_type=>$data_def) {
-			$string = strtolower($data_def);
-			foreach($illegal as $test) {
-				if(strpos($string, $test) !== false) {
-					unset($data_types[$data_type]);
-					continue;
+			if(!empty($data_def) && is_array($data_def)) {
+				$string = strtolower($data_def["definition"]);
+				foreach($illegal as $test) {
+					if(strpos($string, $test) !== false) {
+						unset($data_types[$data_type]);
+						continue;
+					}
 				}
+			} else {
+				unset($data_types[$data_type]);
+				continue;
 			}
-
 		}
 
 		return $data_types;

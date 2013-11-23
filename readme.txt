@@ -8,7 +8,7 @@ Requires at least: 3.2
 Tested up to: 3.7.1
 Stable tag: trunk
 Homepage: http://www.horizontalmeta.com/
-Version: 2.01b
+Version: 2.05b
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -92,6 +92,10 @@ A. The beta 2.0 version allows you to create upto 10 post mappings and 10 user m
 5. Options Screen.
 
 == Changelog ==
+
+= 2.05b free =
+* Added data type labels on the create mappings screen.
+* Created scope for text & longtext data types in premium version.
 
 = 2.01b free =
 * Removed debug log messages in pre-release.
