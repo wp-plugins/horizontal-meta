@@ -21,7 +21,7 @@ Horizontal Meta creates additional relational tables in monitors specific meta k
 
 = What it's got =
 * Create Data-typed mappings in a horizontal/relational structure.
-* Includes string (free), date (premium), time (premium), numeric (premium), decimal (premium) data types with more to come.
+* Includes short text (string) (free), date (premium), time (premium), numeric (premium), decimal (premium), text (premium), long text (premium) data types with more to come.
 * Powerful user interface to review data stored in meta keys and manage the mappings stored in the system.
 * Manage mappings with the Horizontal Meta API
 * Works with User meta and Post meta
