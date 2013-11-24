@@ -1,0 +1,38 @@
+
+#metakey_results thead tr .header {
+	cursor: pointer !important;
+}
+#metakey_results tbody td {
+
+}
+#metakey_results tbody tr.odd td {
+
+}
+#metakey_results thead tr .headerSortUp {
+	background-image: url(asc.gif) !important;
+	background-repeat: no-repeat;
+	background-position: right center;
+}
+#metakey_results thead tr .headerSortDown {
+	background-image: url(desc.gif) !important;
+	background-repeat: no-repeat;
+	background-position: right center;
+}
+#metakey_results thead tr .headerSortDown,
+#metakey_results thead tr .headerSortUp {
+	background-color: #8dbdd8 !important;
+}
+
+
+#pager {
+	top: auto !important;
+	position: relative !important;
+}
+
+#pager img {
+	cursor: pointer;
+}
+
+#pager input {
+	width: 50px;
+}
