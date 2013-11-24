@@ -462,7 +462,8 @@ class hm_controller extends hmeta_controller_base {
 
 		$data = array(
 			"is_multisite" => hm_is_multisite(),
-			"settings" => $settings
+			"settings" => $settings,
+			"extender_active" => is_plugin_active("horizontal-meta-extender/loader.php")
 		);
 
 		$this->view("settings_advanced", $data);
@@ -475,7 +476,8 @@ class hm_controller extends hmeta_controller_base {
 			"post_intercept_keys" => $_REQUEST["post_intercept_keys"],
 			"user_intercept_keys" => $_REQUEST["user_intercept_keys"],
 			"post_override_suppress_filters" => $_REQUEST["post_override_suppress_filters"],
-			"post_override_disable_other_filters" => $_REQUEST["post_override_disable_other_filters"]
+			"post_override_disable_other_filters" => $_REQUEST["post_override_disable_other_filters"],
+			"license_key" => $_REQUEST["horzm_license_key"]
 		);
 		return $settings;
 	}

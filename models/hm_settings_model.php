@@ -29,6 +29,7 @@ class hm_settings_model extends hmeta_model_base {
 		if($settings["user_rewrite_queries"] == "") $settings["user_rewrite_queries"] = "1";
 		if($settings["post_intercept_keys"] == "") $settings["post_intercept_keys"] = "0";
 		if($settings["user_intercept_keys"] == "") $settings["user_intercept_keys"] = "0";
+		if(empty($settings["license_key"])) $settings["license_key"] = "";
 
 		return $settings;
 	}
@@ -36,7 +37,7 @@ class hm_settings_model extends hmeta_model_base {
 	/**
 	 * Save plugin settings
 	 */
-	function save_settings($settings) {
+	function save_settings($settings, $license_key) {
 		update_option("horizontal_meta_settings", $settings);
 	}
 

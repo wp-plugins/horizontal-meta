@@ -8,7 +8,7 @@ Requires at least: 3.2
 Tested up to: 3.7.1
 Stable tag: trunk
 Homepage: http://www.horizontalmeta.com/
-Version: 2.05b
+Version: 2.06b
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -54,6 +54,9 @@ Your votes really make a difference! Thanks.
 * Terms and Conditions that you agree to by using this plugin http://horizontalmeta.com/terms-of-service/
 * Privacy Policy that you agree to by using this plugin http://horizontalmeta.com/privacy-policy/
 
+= PREMIUM VERSION =
+Buy the Premium Version! http://sllwi.re/p/we
+
 = NOTE =
 This software is considered to be in BETA. Please ensure the plugin works as expected carefully and please report any bugs.
 
@@ -77,7 +80,7 @@ A. This may be because the meta key you are watching is being directly updated i
 A. By default when the plugin is first installed, Horizontal Meta will not intercept your meta key queries unless you prefix each meta key with \_horzm\_. This is the recommended method of integrating Horizontal Meta into your website. You may also go to Advanced Settings and set the Intercept Meta Keys option to Yes. With this option set, Horizontal Meta will then reroute any keys that are being watched to Horizontal Meta. You should also double check to ensure you have mapped all the meta keys required for your queries. If you are trying to use Horizontal Meta with get_posts(), you must set the 'suppress_filters' arg to false, or else Horizontal Meta will not be called. If you have done this then perhaps Horizontal Meta is not going to increase the performance of your website and you should look to other solutions.
 
 = Q. I am receiving the message 'Column could not be allocated. Resource limit reached.' =
-A. The beta 2.0 version allows you to create upto 10 post mappings and 10 user mappings with a data type of string. There is an additional plugin to extend the resource limitation and add additional data types, however there is a fee for this plugin. Please email me@nathanfranklin.com.au for more information.
+A. The beta 2.0 version allows you to create upto 10 post mappings and 10 user mappings with a data type of string. There is an additional plugin to extend the resource limitation and add additional data types, however there is a fee for this plugin. You can purchase the premium version of the plugin here: http://sllwi.re/p/we
 
 == Screenshots ==
 
@@ -92,6 +95,9 @@ A. The beta 2.0 version allows you to create upto 10 post mappings and 10 user m
 5. Options Screen.
 
 == Changelog ==
+
+= 2.06b free =
+* Added license code field for when premium extender plugin is installed and activated.
 
 = 2.05b free =
 * Added data type labels on the create mappings screen.
