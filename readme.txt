@@ -8,7 +8,7 @@ Requires at least: 3.2
 Tested up to: 3.7.1
 Stable tag: trunk
 Homepage: http://www.horizontalmeta.com/
-Version: 2.06b
+Version: 2.07b
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -95,6 +95,9 @@ A. The beta 2.0 version allows you to create upto 10 post mappings and 10 user m
 5. Options Screen.
 
 == Changelog ==
+
+= 2.07b free =
+* Fixed Settings Update bug.
 
 = 2.06b free =
 * Added license code field for when premium extender plugin is installed and activated.

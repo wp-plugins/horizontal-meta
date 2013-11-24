@@ -37,7 +37,7 @@ class hm_settings_model extends hmeta_model_base {
 	/**
 	 * Save plugin settings
 	 */
-	function save_settings($settings, $license_key) {
+	function save_settings($settings) {
 		update_option("horizontal_meta_settings", $settings);
 	}
 
