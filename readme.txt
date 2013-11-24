@@ -1,6 +1,6 @@
 === Horizontal Meta ===
 Contributors: nathanfranklinau
-Tags: horizontal meta, eav, relational meta, fast queries, slow queries, speed up wordpress
+Tags: horizontal meta, eav, relational meta, fast queries, slow queries, speed up wordpress, slow meta_query, meta_query
 Author: Nathan Franklin
 Author URI: http://www.nathanfranklin.com.au
 Plugin URI: http://www.horizontalmeta.com/
