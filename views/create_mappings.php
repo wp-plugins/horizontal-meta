@@ -3,6 +3,16 @@
 
 	<?php $this->view("tabs", array("action" => "create_mappings")); ?>
 
+	<?php
+	if(empty($extender_activated)) {
+		?>
+		<div class="need-extender" style="font-weight: bold;">
+			<?php _e("Need more data types? Need more mappings? Why not upgrade to the Premium Version? Horizontal Meta Extender gives you unlimited mappings and 6 more data types to choose from! Upgrade here:"); ?> <a href="http://sllwi.re/p/we" target="_blank">http://sllwi.re/p/we</a>
+		</div>
+		<?php
+	}
+	?>
+
 	<a name="ac-errors"></a>
 	<?php $this->show_admin_notice(); ?>
 

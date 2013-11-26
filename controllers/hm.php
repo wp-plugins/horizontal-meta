@@ -335,6 +335,7 @@ class hm_controller extends hmeta_controller_base {
 		$list_table->prepare_items();
 
 		$data = array(
+			"extender_activated" => is_plugin_active("horizontal-meta-extender/loader.php"),
 			"nonce" => $nonce,
 			"is_multisite" => hm_is_multisite(),
 			"data_types" => $data_types,
@@ -397,6 +398,7 @@ class hm_controller extends hmeta_controller_base {
 //		));
 
 		$data = array(
+			"extender_activated" => is_plugin_active("horizontal-meta-extender/loader.php"),
 			"is_multisite" => hm_is_multisite(),
 			"data_types" => $data_types,
 			"user_meta_keys" => $user_meta_keys,
@@ -435,6 +437,7 @@ class hm_controller extends hmeta_controller_base {
 		$list_table->prepare_items();
 
 		$data = array(
+			"extender_activated" => is_plugin_active("horizontal-meta-extender/loader.php"),
 			"is_multisite" => hm_is_multisite(),
 			"list_table" => $list_table,
 			"current_page" => "settings",
@@ -461,6 +464,7 @@ class hm_controller extends hmeta_controller_base {
 		wp_enqueue_style("hm_css", plugins_url($this->get_plugin_name() . "/css/styles.css"));
 
 		$data = array(
+			"extender_activated" => is_plugin_active("horizontal-meta-extender/loader.php"),
 			"is_multisite" => hm_is_multisite(),
 			"settings" => $settings,
 			"extender_active" => is_plugin_active("horizontal-meta-extender/loader.php")
