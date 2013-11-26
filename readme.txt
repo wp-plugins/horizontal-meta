@@ -8,7 +8,7 @@ Requires at least: 3.2
 Tested up to: 3.7.1
 Stable tag: trunk
 Homepage: http://www.horizontalmeta.com/
-Version: 2.08b
+Version: 2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,7 +26,7 @@ Horizontal Meta creates additional relational tables in monitors specific meta k
 * Manage mappings with the Horizontal Meta API
 * Works with User meta and Post meta
 * Compatible with multisite.
-* Beta version provides ability to create up to 10 mappings with string data type.
+* Free version provides ability to create up to 5 post and user mappings with string data type.
 
 = Perform Faster Meta Queries =
 Access your post and user meta data faster than ever before! Horizontal Meta takes a snapshot of your data and makes it accessible at record speeds!
@@ -57,9 +57,6 @@ Your votes really make a difference! Thanks.
 = PREMIUM VERSION =
 Buy the Premium Version! http://sllwi.re/p/we
 
-= NOTE =
-This software is considered to be in BETA. Please ensure the plugin works as expected carefully and please report any bugs.
-
 == Installation ==
 
 1. Upload 'horizontal-meta' to the '/wp-content/plugins/' directory
@@ -80,7 +77,7 @@ A. This may be because the meta key you are watching is being directly updated i
 A. By default when the plugin is first installed, Horizontal Meta will not intercept your meta key queries unless you prefix each meta key with \_horzm\_. This is the recommended method of integrating Horizontal Meta into your website. You may also go to Advanced Settings and set the Intercept Meta Keys option to Yes. With this option set, Horizontal Meta will then reroute any keys that are being watched to Horizontal Meta. You should also double check to ensure you have mapped all the meta keys required for your queries. If you are trying to use Horizontal Meta with get_posts(), you must set the 'suppress_filters' arg to false, or else Horizontal Meta will not be called. If you have done this then perhaps Horizontal Meta is not going to increase the performance of your website and you should look to other solutions.
 
 = Q. I am receiving the message 'Column could not be allocated. Resource limit reached.' =
-A. The beta 2.0 version allows you to create upto 10 post mappings and 10 user mappings with a data type of string. There is an additional plugin to extend the resource limitation and add additional data types, however there is a fee for this plugin. You can purchase the premium version of the plugin here: http://sllwi.re/p/we
+A. The Free version allows you to create up to 5 post mappings and 5 user mappings with a data type of string. There is an additional plugin to extend the resource limitation and add additional data types, however there is a fee for this plugin. You can purchase the premium version of the plugin here: http://sllwi.re/p/we
 
 == Screenshots ==
 
@@ -95,6 +92,9 @@ A. The beta 2.0 version allows you to create upto 10 post mappings and 10 user m
 5. Options Screen.
 
 == Changelog ==
+
+= 2.1 free =
+* Officially out of BETA!
 
 = 2.08b free =
 * Added premium upgrade options.
