@@ -1,0 +1,141 @@
+
+.wrapper_mapping_table {
+	margin-bottom: 40px;
+}
+
+.wrapper-hm_settings_advanced {
+	box-sizing: border-box;
+	margin-bottom: 30px;
+}
+.wrapper-hm_settings_advanced td.label {
+	width: 35%;
+}
+.wrapper-hm_settings_advanced td.label label {
+	font-weight: bold;
+}
+
+#wrapper-buttons {
+	position: relative;
+}
+
+#map_meta_foot span#wait {
+	display: inline-block;
+	position: absolute;
+	margin-left: 10px;
+	top: 6px;
+	width: 16px !important;
+	height: 16px !important;
+	background: url(../images/wait.gif) no-repeat;
+	visibility: hidden;
+}
+
+.hm-pointer,
+.hm-pointer td {
+	cursor: pointer;
+}
+
+/****************************
+ * table row styles
+ ****************************/
+tr.hm-row-data td {
+	padding: 10px;
+	font-weight: bold;
+}
+tr.hm-hover-state:hover {
+	background-color: #f0f0f0;
+}
+
+tr.hm-data-container {
+	display: none !important;
+}
+
+tr.hm-data-container.visible {
+	display: table-row !important;
+}
+tr.hm-data-container table {
+	table-layout: auto;
+}
+
+/****************************
+ * standard styles
+ ****************************/
+.hm-horizontal-meta h2.nav-tab-wrapper {
+	margin-bottom: 30px;
+}
+.hm-button-container {
+	margin-top: 20px;
+}
+.hm-horizontal-meta .pager {
+	position: relative !important;
+	top: auto !important;
+}
+
+/****************************
+ * Manage Data
+ ****************************/
+.wrapper_mapping_manage_data_table .wrapper-meta-data {
+	min-width: 700px;
+	width: 80%;
+	position: relative;
+	margin-bottom: 30px;
+}
+
+
+/****************************
+ * Remove mappings
+ ****************************/
+.hm-horizontal-meta .wrapper-remove-options {
+	margin-bottom: 30px;
+}
+
+.hm-horizontal-meta .remove-custom-options {
+	margin-top: 10px;
+}
+
+/****************************
+ * Tests
+ ****************************/
+.test-passed {
+	background-color: #d5ffd5;
+	color: #000 !important;
+}
+
+.test-caution {
+	background-color: #ffa500;
+	color: #fff !important;
+}
+
+.test-fail {
+	background-color: #ff0000;
+	color: #fff !important;
+}
+
+/****************************
+ * Loader
+ ****************************/
+div.hm-loader {
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	background: url(../images/wait.gif) no-repeat;
+}
+
+/****************************
+ * Create Mappings
+ ****************************/
+.wrapper-new-field {
+	margin-top: 30px;
+	width: 500px;
+}
+
+.wrapper-new-field td.label label {
+	font-weight: bold;
+}
+
+.wrapper-new-field td.label {
+	min-width: 170px;
+}
+
+.wrapper-new-field .req {
+	color: #ff0000;
+}
