@@ -1,8 +1,5 @@
 <?php
 
-ini_set("display_errors", "On");
-error_reporting(E_CORE_ERROR | E_CORE_WARNING | E_COMPILE_ERROR | E_ERROR | E_WARNING | E_PARSE | E_USER_ERROR | E_USER_WARNING | E_RECOVERABLE_ERROR );
-
 class hm_controller extends hmeta_controller_base {
 
 	public static $instance;

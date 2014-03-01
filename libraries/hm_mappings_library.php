@@ -802,6 +802,7 @@ class hm_mappings_library extends hmeta_library_base {
 		$data_types = array(
 			"string" => array(
 				"label" => "short text (255)",
+				"dbtype" => "varchar(255)",
 				"definition" => "varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL"
 			)
 		);
@@ -813,7 +814,7 @@ class hm_mappings_library extends hmeta_library_base {
 		$data_types = apply_filters("horizontal_meta_data_types", $data_types);
 		if(empty($data_types) || !is_array($data_types)) $data_types = array();
 
-		// make sure there is no malicious statements in the datatypes definitions
+		// make sure there aren't any malicious statements in the datatypes definitions
 		$illegal = array("exec", "'", ";", "\"",":", "{", "}", "select", "update", "insert", "delete", "drop", "create", '%', '--', '/*', '*/', '[', ']');
 		foreach($data_types as $data_type=>$data_def) {
 			if(!empty($data_def) && is_array($data_def)) {

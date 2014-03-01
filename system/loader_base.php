@@ -13,19 +13,19 @@ if(!class_exists("hmeta_loader_base")) {
 
 			$plugin = $this->get_plugin_name();
 
-			$GLOBALS["hmeta"][$plugin]["models"] = (empty($GLOBALS["hmeta"][$plugin]["models"]) ? array() : $GLOBALS["hmeta"][$plugin]["models"]);
-			$GLOBALS["hmeta"][$plugin]["libraries"] = (empty($GLOBALS["hmeta"][$plugin]["libraries"]) ? array() : $GLOBALS["hmeta"][$plugin]["libraries"]);
+			$GLOBALS["hmeta"]["models"] = (empty($GLOBALS["hmeta"]["models"]) ? array() : $GLOBALS["hmeta"]["models"]);
+			$GLOBALS["hmeta"]["libraries"] = (empty($GLOBALS["hmeta"]["libraries"]) ? array() : $GLOBALS["hmeta"]["libraries"]);
 
 			// retrieve the loaded model if found
-			foreach($GLOBALS["hmeta"][$plugin]["models"] as $namespace=>$inst) {
+			foreach($GLOBALS["hmeta"]["models"] as $namespace=>$inst) {
 				if($namespace == $name)
-					return $GLOBALS["hmeta"][$plugin]["models"][$namespace];
+					return $GLOBALS["hmeta"]["models"][$namespace];
 			}
 
 			// retrieve a loaded library if one is loaded
-			foreach($GLOBALS["hmeta"][$plugin]["libraries"] as $namespace=>$inst) {
+			foreach($GLOBALS["hmeta"]["libraries"] as $namespace=>$inst) {
 				if($namespace == $name)
-					return $GLOBALS["hmeta"][$plugin]["libraries"][$namespace];
+					return $GLOBALS["hmeta"]["libraries"][$namespace];
 			}
 
 			return null;
@@ -36,15 +36,9 @@ if(!class_exists("hmeta_loader_base")) {
 		 * The generic classes may be used in multiple plugins, so we use reflection to get the called class to determine what plugin is loaded.
 		 */
 		function get_plugin_name() {
-			$reflection = new ReflectionClass(get_called_class());
-			$filename = $reflection->getFileName();
-			$filename = str_replace(ABSPATH . "wp-content/plugins/","",$filename);
-			if(strpos($filename,"/") !== false) {
-				$plugin = substr($filename, 0, strpos($filename,"/"));
-				return $plugin;
-			} else {
-				return false;
-			}
+			$pathinfo = pathinfo(plugin_basename(dirname(__FILE__)));
+			$plugin_name = $pathinfo["dirname"];
+			return $plugin_name;
 		}
 
 		/**
@@ -63,10 +57,10 @@ if(!class_exists("hmeta_loader_base")) {
 
 
 			// check to see if the model has already been loaded
-			$GLOBALS["hmeta"][$plugin]["models"] = (empty($GLOBALS["hmeta"][$plugin]["models"]) ? array() : $GLOBALS["hmeta"][$plugin]["models"]);
-			$GLOBALS["hmeta"][$plugin]["controllers"] = (empty($GLOBALS["hmeta"][$plugin]["controllers"]) ? array() : $GLOBALS["hmeta"][$plugin]["controllers"]);
+			$GLOBALS["hmeta"]["models"] = (empty($GLOBALS["hmeta"]["models"]) ? array() : $GLOBALS["hmeta"]["models"]);
+			$GLOBALS["hmeta"]["controllers"] = (empty($GLOBALS["hmeta"]["controllers"]) ? array() : $GLOBALS["hmeta"]["controllers"]);
 
-			foreach($GLOBALS["hmeta"][$plugin]["models"] as $loaded_model=>$inst) {
+			foreach($GLOBALS["hmeta"]["models"] as $loaded_model=>$inst) {
 				if($loaded_model == $namespace) return true;
 			}
 
@@ -74,8 +68,8 @@ if(!class_exists("hmeta_loader_base")) {
 				include_once $plugin_dir . "/models/" . $model;
 
 				// store a new instance of the model
-				$GLOBALS["hmeta"][$plugin]["models"][$namespace] = new $model_base();
-				return $GLOBALS["hmeta"][$plugin]["models"][$namespace];
+				$GLOBALS["hmeta"]["models"][$namespace] = new $model_base();
+				return $GLOBALS["hmeta"]["models"][$namespace];
 			} else {
 				return false;
 			}
@@ -97,9 +91,9 @@ if(!class_exists("hmeta_loader_base")) {
 
 
 			// check to see if the library has already been loaded
-			$GLOBALS["hmeta"][$plugin]["libraries"] = (empty($GLOBALS["hmeta"][$plugin]["libraries"]) ? array() : $GLOBALS["hmeta"][$plugin]["libraries"]);
+			$GLOBALS["hmeta"]["libraries"] = (empty($GLOBALS["hmeta"]["libraries"]) ? array() : $GLOBALS["hmeta"]["libraries"]);
 
-			foreach($GLOBALS["hmeta"][$plugin]["libraries"] as $loaded_library=>$inst) {
+			foreach($GLOBALS["hmeta"]["libraries"] as $loaded_library=>$inst) {
 				if($loaded_library == $namespace) return true;
 			}
 
@@ -107,8 +101,8 @@ if(!class_exists("hmeta_loader_base")) {
 				include_once $plugin_dir . "/libraries/" . $library;
 
 				// store a new instance of the model
-				$GLOBALS["hmeta"][$plugin]["libraries"][$namespace] = new $library_base();
-				return $GLOBALS["hmeta"][$plugin]["libraries"][$namespace];
+				$GLOBALS["hmeta"]["libraries"][$namespace] = new $library_base();
+				return $GLOBALS["hmeta"]["libraries"][$namespace];
 			} else {
 				return false;
 			}

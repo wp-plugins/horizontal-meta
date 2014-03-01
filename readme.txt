@@ -8,7 +8,7 @@ Requires at least: 3.2
 Tested up to: 3.7.1
 Stable tag: trunk
 Homepage: http://www.horizontalmeta.com/
-Version: 2.1
+Version: 2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -92,6 +92,10 @@ A. The Free version allows you to create up to 5 post mappings and 5 user mappin
 5. Options Screen.
 
 == Changelog ==
+
+= 2.2 free =
+* FIXED: Bug using get_called_class() (php pre version 5.3).
+* FIXED: Bug in where clause generation. Replaced empty() with isset().
 
 = 2.1 free =
 * Officially out of BETA!

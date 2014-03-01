@@ -163,10 +163,13 @@ class hm_query_library extends hmeta_library_base {
 				"key" => $key
 			);
 
-			if(isset($query_vars["meta_value"])) $meta["value"] = $query_vars["meta_value"];
+			// DO MORE TESTING ON META_VALUE
+			// it seems meta_value is set as '' even if it's not parsed.
+			// this means if the user wants to do a comparison on '' (unlikely) it will no longer.
+			// TODO: Look for alternate method.
+			if(!empty($query_vars["meta_value"])) $meta["value"] = $query_vars["meta_value"];
 			if(isset($query_vars["meta_compare"])) $meta["compare"] = $query_vars["meta_compare"];
 			if(isset($query_vars["meta_type"])) $meta["type"] = $query_vars["meta_type"];
-			if(isset($query_vars["meta_value"])) $meta["value"] = $query_vars["meta_value"];
 			if(!empty($query_vars["orderby"]) && (strpos($query_vars["orderby"], "meta_value") !== false || strpos($query_vars["orderby"], $key) !== false)) $meta["orderby"] = true;
 
 			$output["extracted"][] = $meta;
@@ -262,7 +265,7 @@ class hm_query_library extends hmeta_library_base {
 
 	public function post_where($where, $query) {
 //		if($query->query_vars["nathan"]) {
-//			//print $where . "\n\n";
+//			print $where . "\n\n";
 //			//exit;
 //		}
 //		//return $where;
@@ -285,6 +288,12 @@ class hm_query_library extends hmeta_library_base {
 			$where = substr($where, 0, strlen($where)-1);
 			$trail_bracket = true;
 		}
+
+//		if($query->query_vars["nathan"]) {
+//			//print $where . "\n\n";
+//			print_r($query->meta_query->queries);
+//			exit;
+//		}
 
 		// add a where clauses for
 		$mappings = $this->hm_mappings_library->get_post_mappings();
@@ -342,7 +351,7 @@ class hm_query_library extends hmeta_library_base {
 		global $wpdb;
 
 		$meta_key = !empty($meta["key"]) ? $meta["key"] : "";
-		$meta_value = !empty($meta["value"]) ? $meta["value"] : "";
+		$meta_value = isset($meta["value"]) ? $meta["value"] : null;
 		$meta_compare = strtoupper(!isset($meta["compare"]) ? (is_array($meta_value) ? "IN" : "=") : $meta["compare"]);
 		$meta_type = !empty($meta["type"]) ? $meta["type"] : "";
 

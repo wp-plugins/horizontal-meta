@@ -18,7 +18,7 @@ class meta_key_listing_table extends WP_List_Table {
 
 		// Grab this instance of the adoption_table library so we can interface into the adoptions_model
 		// it's a little bit fruity but it will work and means I don't need to double up on code.
-		$this->interface = $GLOBALS["hmeta"]["horizontal-meta"]["controllers"]["hm"];
+		$this->interface = $GLOBALS["hmeta"]["controllers"]["hm"];
 		$this->interface->library("hm_mappings_library"); // make sure the adoptions model is loaded
 	}
 

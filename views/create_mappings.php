@@ -60,6 +60,7 @@
 					<td>
 						<select name="new_user_meta_key" class="key-select">
 							<option value=""><?php _e("Select user meta key", 'horizontal-meta'); ?></option>
+							<option value="OTHER" <?php print (!in_array($new_user_meta_key, $user_meta_keys) && !empty($new_user_meta_key) ? "selected" : ""); ?> ><?php _e("OTHER", 'horizontal-meta'); ?></option>
 							<?php
 							foreach($user_meta_keys as $item) {
 								?>
@@ -67,7 +68,6 @@
 							<?php
 							}
 							?>
-							<option value="OTHER" <?php print (!in_array($new_user_meta_key, $user_meta_keys) && !empty($new_user_meta_key) ? "selected" : ""); ?> ><?php _e("OTHER", 'horizontal-meta'); ?></option>
 						</select>
 
 						<div class="other-key user_meta_other">

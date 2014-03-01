@@ -46,8 +46,8 @@ if(!function_exists("hmeta_load_controllers")) {
 		$plugin = $plugin_dir;
 		$controller_dir = $plugins_dir . $plugin_dir . "/controllers";
 
-		$GLOBALS["hmeta"][$plugin] = array();
-		$GLOBALS["hmeta"][$plugin]["controllers"] = array();
+		$GLOBALS["hmeta"] = array();
+		$GLOBALS["hmeta"]["controllers"] = array();
 
 		// Load applicable controllers
 		$target_dir = $controller_dir;
@@ -61,17 +61,17 @@ if(!function_exists("hmeta_load_controllers")) {
 					include $file;
 					$controller = $path_info["filename"];
 					$controller_class = $controller . "_controller";
-					$GLOBALS["hmeta"][$plugin]["controllers"][$controller] = new $controller_class();
+					$GLOBALS["hmeta"]["controllers"][$controller] = new $controller_class();
 				}
 			}
 		}
 
 		// initialise based on priority
-		uasort($GLOBALS["hmeta"][$plugin]["controllers"], "hmeta_controller_priority");
+		uasort($GLOBALS["hmeta"]["controllers"], "hmeta_controller_priority");
 
 		// Load all the standard hooks needed for a controller.
-		foreach($GLOBALS["hmeta"][$plugin]["controllers"] as $controller=>$inst) {
-			$GLOBALS["hmeta"][$plugin]["controllers"][$controller]->init_hooks();
+		foreach($GLOBALS["hmeta"]["controllers"] as $controller=>$inst) {
+			$GLOBALS["hmeta"]["controllers"][$controller]->init_hooks();
 		}
 
 	}
