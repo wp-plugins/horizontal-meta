@@ -372,7 +372,7 @@ class hm_query_library extends hmeta_library_base {
 			'LIKE', 'NOT LIKE',
 			'IN', 'NOT IN',
 			'BETWEEN', 'NOT BETWEEN',
-			'NOT EXISTS',
+			'NOT EXISTS', 'EXISTS',
 			'REGEXP', 'NOT REGEXP', 'RLIKE'
 		);
 
@@ -385,6 +385,9 @@ class hm_query_library extends hmeta_library_base {
 			return $where;
 		} else if ($meta_compare == 'NOT EXISTS' ) {
 			$where = " {$relation} {$column_name} IS NULL ";
+			return $where;
+		} else if ($meta_compare == 'EXISTS' ) {
+			$where = " {$relation} NOT {$column_name} IS NULL ";
 			return $where;
 		}
 

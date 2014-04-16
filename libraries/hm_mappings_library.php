@@ -235,7 +235,7 @@ class hm_mappings_library extends hmeta_library_base {
 
 		$mappings = $this->get_mappings_by_type($type);
 		if(array_key_exists($key, $mappings)) {
-			$values = array($mappings[$key]["column"] => $value);
+			$values = array($mappings[$key]["column"] => maybe_serialize($value));
 			$wpdb->update($db_table, $values, array("obj_id" => $object_id));
 			return true;
 		} else {
@@ -268,7 +268,7 @@ class hm_mappings_library extends hmeta_library_base {
 
 		if(array_key_exists($key, $mappings)) {
 			$sql = $wpdb->prepare("Select `" . $mappings[$key]["column"] . "` From {$db_table} Where obj_id = %s", $object_id);
-			$value = $wpdb->get_var($sql);
+			$value = maybe_unserialize($wpdb->get_var($sql));
 			return array((empty($value) ? false : $value));
 		} else {
 			return false;

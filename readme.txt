@@ -5,10 +5,10 @@ Author: Nathan Franklin
 Author URI: http://www.nathanfranklin.com.au
 Plugin URI: http://www.horizontalmeta.com/
 Requires at least: 3.2
-Tested up to: 3.8.1
+Tested up to: 3.9
 Stable tag: trunk
 Homepage: http://www.horizontalmeta.com/
-Version: 2.2
+Version: 2.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -92,6 +92,10 @@ A. The Free version allows you to create up to 5 post mappings and 5 user mappin
 5. Options Screen.
 
 == Changelog ==
+
+= 2.2.1 free =
+* ADDED: Exists compare operator
+* FIXED: Bug when saving a value that needs to be serialized. The value wasn't serialized but instead set the field to an empty value.
 
 = 2.2 free =
 * FIXED: Bug using get_called_class() (php pre version 5.3).

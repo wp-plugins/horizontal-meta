@@ -3,7 +3,7 @@
 Plugin Name: Horizontal Meta
 Plugin URI: http://wordpress.org/plugins/horizontal-meta/
 Description: Alters the way WordPress handles meta data to allow for query-able data-typed fields and performance.
-Version: 2.2
+Version: 2.2.1
 Author: Nathan Franklin
 Author URI: http://www.nathanfranklin.com.au/
 License: GPLv2 or later
@@ -30,10 +30,12 @@ hmeta_load_init(basename(dirname(__FILE__)));
 //add_action('plugins_loaded', $init_func, 0);
 
 // Load moduled functions.
-$function_files = scandir(dirname(__FILE__) . "/functions/");
-foreach($function_files as $function_file) {
-	if(substr($function_file, -4) == ".php") {
-		require_once dirname(__FILE__) . "/functions/" . $function_file;
+if(file_exists(dirname(__FILE__) . "/functions/") & is_dir(dirname(__FILE__) . "/functions/")) {
+	$function_files = scandir(dirname(__FILE__) . "/functions/");
+	foreach($function_files as $function_file) {
+		if(substr($function_file, -4) == ".php") {
+			require_once dirname(__FILE__) . "/functions/" . $function_file;
+		}
 	}
 }
 
