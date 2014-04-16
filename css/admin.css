@@ -1,0 +1,109 @@
+
+.ft_fieldset {
+	margin-bottom: 15px;
+}
+
+.ft_fieldset label {
+	font-weight: bold;
+}
+
+.ft_fieldset.collapsable .inside {
+	padding: 0px;
+}
+.ft_fieldset.collapsable .expand_text {
+	display: none;
+}
+
+.ft_fieldset.collapsable.closed .expand_text {
+	font-size: 0.8em;
+	display: block !important;
+	cursor: pointer;
+}
+
+.ft_fieldset.collapsable .collapse_text {
+	font-size: 0.8em;
+	display: block;
+	cursor: pointer;
+}
+
+.ft_fieldset.collapsable.closed .collapse_text {
+	display: none;
+}
+
+ul.example-list {
+	margin-top: 0px;
+}
+ul.example-list li {
+	margin-bottom: 0px;
+	margin-left: 16px;
+	list-style: disc;
+
+}
+
+.kh-profile .gfield_admin_icons {
+	display: none !important;
+}
+
+
+.wrapper-field-input .field-input {
+	display: inline-block;
+	*display: inline;
+	position: relative;
+	margin-bottom: 3px;
+}
+
+
+
+
+
+
+
+.clearbox {
+	clear: both;
+	display: block;
+	overflow: hidden;
+	visibility: hidden;
+	width: 0;
+	height: 0;
+}
+
+/* http://www.yuiblog.com/blog/2010/09/27/clearfix-reloaded-overflowhidden-demystified */
+
+.clearbox:before,
+.clearbox:after {
+	content: '\0020';
+	display: block;
+	overflow: hidden;
+	visibility: hidden;
+	width: 0;
+	height: 0;
+}
+
+.clearbox:after {
+	clear: both;
+}
+
+.ft_fieldset.membership-types {
+	display: none !important;
+}
+
+/*
+  The following zoom:1 rule is specifically for IE6 + IE7.
+  Move to separate stylesheet if invalid CSS is a problem.
+*/
+
+.clearbox {
+	zoom: 1;
+}
+
+.subfield-title {
+	font-size: 0.9em;
+}
+
+#acf-field_114 {
+	height: 350px;
+}
+
+.order-attributes {
+	display: none !important;
+}
