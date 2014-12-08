@@ -1,0 +1,274 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Horizontal Meta\n"
+"POT-Creation-Date: 2014-12-09 08:27+1000\n"
+"PO-Revision-Date: 2014-12-09 08:27+1000\n"
+"Last-Translator: \n"
+"Language-Team: Nathan Franklin <me@nathanfranklin.com.au>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e\n"
+"X-Poedit-Basepath: /Users/Nathan/Sites/Plugins/horizontal-meta/trunk/\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: controllers\n"
+"X-Poedit-SearchPath-1: libraries\n"
+"X-Poedit-SearchPath-2: models\n"
+"X-Poedit-SearchPath-3: views\n"
+"X-Poedit-SearchPath-4: functions\n"
+
+#: views/create_mappings.php:10
+msgid "Create new Horizontal mappings using the table below."
+msgstr ""
+
+#: views/create_mappings.php:20
+msgid "Create new mapping."
+msgstr ""
+
+#: views/create_mappings.php:26
+msgid "Mapping type"
+msgstr ""
+
+#: views/create_mappings.php:27
+msgid "Select the type of mapping you would like to add."
+msgstr ""
+
+#: views/create_mappings.php:31
+msgid "Select Type"
+msgstr ""
+
+#: views/create_mappings.php:35
+msgid "User Meta"
+msgstr ""
+
+#: views/create_mappings.php:39
+msgid "Post Meta"
+msgstr ""
+
+#: views/create_mappings.php:47 views/create_mappings.php:70
+msgid "Meta Key"
+msgstr ""
+
+#: views/create_mappings.php:48 views/create_mappings.php:71
+msgid ""
+"Select the meta key you would like to migrate to a horizontal structure. You "
+"may also enter your own by selecting 'OTHER' from the list."
+msgstr ""
+
+#: views/create_mappings.php:52
+msgid "Select user meta key"
+msgstr ""
+
+#: views/create_mappings.php:53 views/create_mappings.php:83
+msgid "OTHER"
+msgstr ""
+
+#: views/create_mappings.php:64 views/create_mappings.php:87
+msgid "OTHER:"
+msgstr ""
+
+#: views/create_mappings.php:75
+msgid "Select post meta key"
+msgstr ""
+
+#: views/create_mappings.php:93
+msgid "Data Type"
+msgstr ""
+
+#: views/create_mappings.php:94
+msgid "Select the data type this meta key should be mapped to."
+msgstr ""
+
+#: views/create_mappings.php:98
+msgid "Select data type"
+msgstr ""
+
+#: views/create_mappings.php:111
+msgid "Mapping Test Results"
+msgstr ""
+
+#: views/create_mappings.php:112
+msgid ""
+"Please review this list to ensure that the data contained within the meta "
+"key is mappable based on your current configuration. If errors are found "
+"below you will not be able to map the meta key. <b>REMEMBER,</b> These tests "
+"are based on existing data, incompatibilities may still occur with new data "
+"that is added."
+msgstr ""
+
+#: views/create_mappings.php:125
+msgid "Test Mapping"
+msgstr ""
+
+#: views/create_mappings.php:127
+msgid "Create Mapping"
+msgstr ""
+
+#: views/manage_data.php:18
+msgid "Update Data"
+msgstr ""
+
+#: views/manage_data_load_data.php:3
+msgid ""
+"The table below represents data stored in both the WordPress meta table and "
+"the Horizontal meta table for this particular meta key."
+msgstr ""
+
+#: views/manage_data_load_data.php:10
+msgid "WordPress Data"
+msgstr ""
+
+#: views/manage_data_load_data.php:11
+msgid "Horizontal Data"
+msgstr ""
+
+#: views/manage_data_load_data.php:12
+msgid "Sync to Horizontal Meta"
+msgstr ""
+
+#: views/manage_data_load_data.php:66
+msgid "No Data Found"
+msgstr ""
+
+#: views/manage_data_load_data.php:84 views/test_results.php:46
+msgid "5"
+msgstr ""
+
+#: views/manage_data_load_data.php:85 views/test_results.php:47
+msgid "10"
+msgstr ""
+
+#: views/manage_data_load_data.php:86 views/test_results.php:48
+msgid "20"
+msgstr ""
+
+#: views/manage_data_load_data.php:87 views/test_results.php:49
+msgid "30"
+msgstr ""
+
+#: views/manage_data_load_data.php:88 views/test_results.php:50
+msgid "40"
+msgstr ""
+
+#: views/manage_data_load_data.php:89 views/test_results.php:51
+msgid "50"
+msgstr ""
+
+#: views/manage_data_load_data.php:90 views/test_results.php:52
+msgid "100"
+msgstr ""
+
+#: views/manage_data_load_data.php:91 views/test_results.php:53
+msgid "200"
+msgstr ""
+
+#: views/settings.php:13
+msgid ""
+"The table you see below contains a list of meta keys that are being "
+"'watched' by Horizontal Meta."
+msgstr ""
+
+#: views/settings_advanced.php:12
+msgid "Post Query Settings"
+msgstr ""
+
+#: views/settings_advanced.php:17 views/settings_advanced.php:20
+#: views/settings_advanced.php:64 views/settings_advanced.php:67
+msgid "Rewrite Queries"
+msgstr ""
+
+#: views/settings_advanced.php:25 views/settings_advanced.php:43
+#: views/settings_advanced.php:72 views/settings_advanced.php:90
+msgid "Yes"
+msgstr ""
+
+#: views/settings_advanced.php:27 views/settings_advanced.php:45
+#: views/settings_advanced.php:74 views/settings_advanced.php:92
+msgid "No"
+msgstr ""
+
+#: views/settings_advanced.php:30
+msgid ""
+"Hook into WP_Query and rewrite meta queries? Disabling this option will turn "
+"Horizontal Meta off for post queries."
+msgstr ""
+
+#: views/settings_advanced.php:30 views/settings_advanced.php:77
+msgid ""
+"NOTE: Horizontal Meta currently does not support advanced querying features "
+"that are available in WordPress 4.1 and later. This may become available "
+"sometime in the future."
+msgstr ""
+
+#: views/settings_advanced.php:35 views/settings_advanced.php:38
+#: views/settings_advanced.php:82 views/settings_advanced.php:85
+msgid "Intercept Meta Keys"
+msgstr ""
+
+#: views/settings_advanced.php:48 views/settings_advanced.php:95
+msgid ""
+"Allow Horizontal Meta to redirect meta key queries to itself. When this "
+"option is disabled, you must use the _horzm_ prefix to redirect a meta key "
+"query to Horziontal Meta."
+msgstr ""
+
+#: views/settings_advanced.php:59
+msgid "User Query Settings"
+msgstr ""
+
+#: views/settings_advanced.php:77
+msgid ""
+"Hook into WP_User_Query and rewrite meta queries? Disabling this option will "
+"turn Horizontal Meta off for user queries."
+msgstr ""
+
+#: views/settings_advanced.php:113
+msgid "Save Settings"
+msgstr ""
+
+#: views/settings_remove_mapping.php:5
+msgid "WARNING!!!"
+msgstr ""
+
+#: views/settings_remove_mapping.php:5
+msgid ""
+"You are selecting to remove this mapping from the Horizontal meta table."
+msgstr ""
+
+#: views/settings_remove_mapping.php:5
+msgid "You will no longer be able to access this data from Horizontal Meta."
+msgstr ""
+
+#: views/tabs.php:6
+msgid "Horizontal Meta"
+msgstr ""
+
+#: views/tabs.php:7
+msgid "Create Mappings"
+msgstr ""
+
+#: views/tabs.php:8
+msgid "Manage Data"
+msgstr ""
+
+#: views/tabs.php:9
+msgid "Advanced Settings"
+msgstr ""
+
+#: views/test_results.php:4
+msgid "Object"
+msgstr ""
+
+#: views/test_results.php:5
+msgid "Original"
+msgstr ""
+
+#: views/test_results.php:6
+msgid "New"
+msgstr ""
+
+#: views/test_results.php:7
+msgid "Result"
+msgstr ""
