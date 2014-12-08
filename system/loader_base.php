@@ -36,15 +36,7 @@ if(!class_exists("hmeta_loader_base")) {
 		 * The generic classes may be used in multiple plugins, so we use reflection to get the called class to determine what plugin is loaded.
 		 */
 		function get_plugin_name() {
-			$reflection = new ReflectionClass(get_called_class());
-			$filename = $reflection->getFileName();
-			$filename = str_replace(ABSPATH . "wp-content/plugins/","",$filename);
-			if(strpos($filename,"/") !== false) {
-				$plugin = substr($filename, 0, strpos($filename,"/"));
-				return $plugin;
-			} else {
-				return false;
-			}
+			return "horizontal-meta";
 		}
 
 		/**
