@@ -3,12 +3,11 @@ Contributors: nathanfranklinau
 Tags: horizontal meta, eav, relational meta, fast queries, slow queries, speed up wordpress, slow meta_query, meta_query
 Author: Nathan Franklin
 Author URI: http://www.nathanfranklin.com.au
-Plugin URI: http://www.horizontalmeta.com/
 Requires at least: 3.2
-Tested up to: 3.9
+Tested up to: 4.0.1
 Stable tag: trunk
 Homepage: http://www.horizontalmeta.com/
-Version: 2.2.1
+Version: 2.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -17,16 +16,17 @@ Change the structure of important meta data fields to a horizontal/relational st
 == Description ==
 Give WordPress meta queries a performance kick. Change the structure of important meta data fields to a horizontal/relational structure to overcome the performance restrictions that exist in the current meta structure.
 
-Horizontal Meta creates additional relational tables in monitors specific meta keys for updates and deletions and will copy any update into the relational table. Horizontal Meta can also override the default WordPress queries linking to the WordPress meta table to reroute them to its own table structure. This can significantly increase the speed of meta queries for larger sites that use heavy meta querying and also gives way to better custom SQL queries for extracting meta data out of WordPress.
+Horizontal Meta creates additional relational tables in monitors specific meta keys for updates and deletions and will copy any update into the relational table.
+
+NOTE: Horizontal Meta is currently NOT compatible with advanced meta querying features available in WordPress 4.1 and later!!! You will still be able to use Horizontal Meta for meta data extraction, but Horizontal Meta will not be able to rewrite complex queries. This may be available sometime in the future.
 
 = What it's got =
 * Create Data-typed mappings in a horizontal/relational structure.
-* Includes short text (string) (free), date (premium), time (premium), numeric (premium), decimal (premium), text (premium), long text (premium) data types with more to come.
+* Includes short text (string), date, time, numeric, decimal, text, long text data types.
 * Powerful user interface to review data stored in meta keys and manage the mappings stored in the system.
 * Manage mappings with the Horizontal Meta API
 * Works with User meta and Post meta
 * Compatible with multisite.
-* Free version provides ability to create up to 5 post and user mappings with string data type.
 
 = Perform Faster Meta Queries =
 Access your post and user meta data faster than ever before! Horizontal Meta takes a snapshot of your data and makes it accessible at record speeds!
@@ -54,9 +54,6 @@ Your votes really make a difference! Thanks.
 * Terms and Conditions that you agree to by using this plugin http://horizontalmeta.com/terms-of-service/
 * Privacy Policy that you agree to by using this plugin http://horizontalmeta.com/privacy-policy/
 
-= PREMIUM VERSION =
-Buy the Premium Version! http://sllwi.re/p/we
-
 == Installation ==
 
 1. Upload 'horizontal-meta' to the '/wp-content/plugins/' directory
@@ -74,10 +71,7 @@ A. No. Horizontal Meta should be tested with your installation and your WordPres
 A. This may be because the meta key you are watching is being directly updated in the database rather than using the WordPress API. Your meta key may not be compatible with Horizontal Meta. If you are a developer, you may try to trace through the code to find out where the meta key is being updated. If the meta key is created an updated by a plugin, you may also send a request to the plugin developer and request they use the WordPress API to make updates and additions.
 
 = Q. I have just installed the plugin and my website is still slow. What do I do? =
-A. By default when the plugin is first installed, Horizontal Meta will not intercept your meta key queries unless you prefix each meta key with \_horzm\_. This is the recommended method of integrating Horizontal Meta into your website. You may also go to Advanced Settings and set the Intercept Meta Keys option to Yes. With this option set, Horizontal Meta will then reroute any keys that are being watched to Horizontal Meta. You should also double check to ensure you have mapped all the meta keys required for your queries. If you are trying to use Horizontal Meta with get_posts(), you must set the 'suppress_filters' arg to false, or else Horizontal Meta will not be called. If you have done this then perhaps Horizontal Meta is not going to increase the performance of your website and you should look to other solutions.
-
-= Q. I am receiving the message 'Column could not be allocated. Resource limit reached.' =
-A. The Free version allows you to create up to 5 post mappings and 5 user mappings with a data type of string. There is an additional plugin to extend the resource limitation and add additional data types, however there is a fee for this plugin. You can purchase the premium version of the plugin here: http://sllwi.re/p/we
+A. By default when the plugin is first installed, Horizontal Meta will not intercept your meta key queries unless you prefix each meta key with \_horzm\_. This is the recommended method of integrating Horizontal Meta into your website. You may also go to Advanced Settings and set the Intercept Meta Keys option to Yes. With this option set, Horizontal Meta will then reroute any keys that are being watched to Horizontal Meta. You should also double check to ensure you have mapped all the meta keys required for your queries. If you are trying to use Horizontal Meta with get_posts(), you must set the 'suppress_filters' arg to false, or else Horizontal Meta will not be called. If you have done this then perhaps Horizontal Meta is not going to increase the performance of your website and you should look to other solutions. NOTE: Horizontal Meta currently does not support the advanced querying features available in WordPress 4.1 and later! This may be available in the future.
 
 == Screenshots ==
 
@@ -92,6 +86,11 @@ A. The Free version allows you to create up to 5 post mappings and 5 user mappin
 5. Options Screen.
 
 == Changelog ==
+
+= 2.3.0 =
+* NOTE: Horizontal Meta is not compatible with advanced querying features available in WordPress 4.1 and later.
+* ADDED: Premium datatypes date, time, numeric, decimal, text, long text data types.
+* REMOVED: Restrictions to limit mappings. You can now create unlimited mappings.
 
 = 2.2.1 free =
 * ADDED: Exists compare operator

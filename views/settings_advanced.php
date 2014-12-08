@@ -5,16 +5,6 @@
 
 		<?php $this->view("tabs", array("action" => "advanced")); ?>
 
-		<?php
-		if(empty($extender_activated)) {
-			?>
-			<div class="need-extender" style="font-weight: bold;">
-				<?php _e("Need more data types? Need more mappings? Why not upgrade to the Premium Version? Horizontal Meta Extender gives you unlimited mappings and 6 more data types to choose from! Upgrade here:"); ?> <a href="http://sllwi.re/p/we" target="_blank">http://sllwi.re/p/we</a>
-			</div>
-		<?php
-		}
-		?>
-
 		<?php $this->show_admin_notice(); ?>
 
 		<div class="wrapper-hm_settings_advanced">
@@ -37,7 +27,7 @@
 											value="0" <?php print ($settings["post_rewrite_queries"] == "0" ? "selected" : ""); ?> ><?php _e("No", 'horizontal-meta'); ?></option>
 									</select>
 
-								<p class="description"><?php _e("Hook into WP_Query and rewrite meta queries? Disabling this option will turn Horizontal Meta off for post queries.", 'horizontal-meta'); ?></p>
+								<p class="description"><?php _e("Hook into WP_Query and rewrite meta queries? Disabling this option will turn Horizontal Meta off for post queries.", 'horizontal-meta'); ?> <?php _e("NOTE: Horizontal Meta currently does not support advanced querying features that are available in WordPress 4.1 and later. This may become available sometime in the future.", 'horizontal-meta'); ?></p>
 							</fieldset>
 						</td>
 					</tr>
@@ -84,7 +74,7 @@
 											value="0" <?php print ($settings["user_rewrite_queries"] == "0" ? "selected" : ""); ?> ><?php _e("No", 'horizontal-meta'); ?></option>
 									</select>
 
-									<p class="description"><?php _e("Hook into WP_User_Query and rewrite meta queries? Disabling this option will turn Horizontal Meta off for user queries.", 'horizontal-meta'); ?></p>
+									<p class="description"><?php _e("Hook into WP_User_Query and rewrite meta queries? Disabling this option will turn Horizontal Meta off for user queries.", 'horizontal-meta'); ?> <?php _e("NOTE: Horizontal Meta currently does not support advanced querying features that are available in WordPress 4.1 and later. This may become available sometime in the future.", 'horizontal-meta'); ?></p>
 							</fieldset>
 						</td>
 					</tr>
@@ -108,32 +98,6 @@
 					</tr>
 					</tbody>
 				</table>
-				<div class="clear"></div>
-
-				<?php
-				if($extender_active) {
-					?>
-					<h3><?php _e("License Key For Meta Extender", 'horizontal-meta'); ?></h3>
-
-					<table class="form-table">
-						<tbody>
-						<tr valign="top" class="">
-							<th scope="row" class="titledesc"><?php _e("License Key", 'horizontal-meta'); ?></th>
-							<td class="forminp forminp-checkbox">
-								<fieldset>
-									<legend class="screen-reader-text"><span><?php _e("License Key", 'horizontal-meta'); ?></span></legend>
-
-									<label for="horzm_license_key">
-										<input type="text" name="horzm_license_key" value="<?php print $settings["license_key"]; ?>" />
-									</label>
-								</fieldset>
-							</td>
-						</tr>
-						</tbody>
-					</table>
-					<?php
-				}
-				?>
 				<div class="clear"></div>
 				<?php
 			}

@@ -411,7 +411,7 @@ class hm_query_library extends hmeta_library_base {
 			$meta_value = array_slice($meta_value, 0, 2);
 			$meta_compare_string = '%s AND %s';
 		} else if (substr($meta_compare, 0, 4) == 'LIKE') {
-			$meta_value = '%' . like_escape($meta_value) . '%';
+			$meta_value = '%' . wpdb::esc_like($meta_value) . '%';
 			$meta_compare_string = '%s';
 		} else {
 			$meta_compare_string = '%s';

@@ -753,13 +753,47 @@ class hm_mappings_library extends hmeta_library_base {
 	 */
 	private function allocate_resource($type, $data_type, $index) {
 
-		if(!is_plugin_active("horizontal-meta-extender/loader.php")) {
+		global $wpdb;
+
+		if(!$this->is_type_supported($type))
 			return false;
+
+		if(!empty($index) && !is_numeric($index))
+			return false;
+
+		$output = false;
+		$data_prefix = $this->get_data_type_prefix($data_type);
+		$columns = $this->get_db_columns_by_datatype($type, $data_prefix);
+		$db_table = $this->get_db_table_by_type($type);
+		$data_type_definition = $this->get_data_type_definition($data_type);
+
+		if(!empty($index) && is_numeric($index) && intval($index) > 0) {
+			// allocate multiple resources up to index
+			// this ensures everything is kept in sync.
+			for($i=(count($columns)+1);$i<=$index;$i++) {
+				$column = $data_prefix . $i;
+				if(!$this->column_in_use($type, $column) && !$this->db_column_exists($type, $column)) {
+					$sql = "ALTER TABLE {$db_table}
+							ADD COLUMN `{$column}` {$data_type_definition}";
+					$wpdb->query($sql);
+					$output = $column;
+				}
+			}
+		} else {
+			// allocate a single resource which will be the next available
+			for($i=1;$i<=100;$i++) {
+				$column = $data_prefix . (count($columns)+$i);
+				if(!$this->column_in_use($type, $column) && !$this->db_column_exists($type, $column)) {
+					$sql = "ALTER TABLE {$db_table}
+							ADD COLUMN `{$column}` {$data_type_definition}";
+					$wpdb->query($sql);
+					$output = $column;
+					break;
+				}
+			}
 		}
 
-		$result = apply_filters("horizontal_meta_allocate_resource", false, $type, $data_type, $index);
-
-		return $result;
+		return $output;
 	}
 
 	/**
@@ -807,15 +841,14 @@ class hm_mappings_library extends hmeta_library_base {
 			)
 		);
 
-		if(!is_plugin_active("horizontal-meta-extender/loader.php")) {
-			return $data_types;
-		}
+		// moved horizontal-meta-extender to the free version
+		$data_types = array_merge($data_types, $this->get_extended_data_types());
 
 		$data_types = apply_filters("horizontal_meta_data_types", $data_types);
 		if(empty($data_types) || !is_array($data_types)) $data_types = array();
 
 		// make sure there aren't any malicious statements in the datatypes definitions
-		$illegal = array("exec", "'", ";", "\"",":", "{", "}", "select", "update", "insert", "delete", "drop", "create", '%', '--', '/*', '*/', '[', ']');
+		$illegal = array("exec", "'", ";", "\"",":", "{", "}", "select", "update", "insert", "delete", "drop", "create", '%', '--', '//', '/*', '*/', '[', ']');
 		foreach($data_types as $data_type=>$data_def) {
 			if(!empty($data_def) && is_array($data_def)) {
 				$string = strtolower($data_def["definition"]);
@@ -832,6 +865,43 @@ class hm_mappings_library extends hmeta_library_base {
 		}
 
 		return $data_types;
+	}
+
+	function get_extended_data_types() {
+		$output = array(
+			"date" => array(
+				"label" => "date",
+				"dbtype" => "date",
+				"definition" => "date DEFAULT NULL"
+			),
+			"datetime" => array(
+				"label" => "datetime",
+				"dbtype" => "datetime",
+				"definition" => "datetime DEFAULT NULL",
+			),
+			"decimal" => array(
+				"label" => "decimal",
+				"definition" => "decimal(18,2) DEFAULT NULL",
+				"dbtype" => "decimal(18,2)",
+			),
+			"int" => array(
+				"label" => "int",
+				"definition" => "int(11) DEFAULT NULL",
+				"dbtype" => "int(11)",
+			),
+			"text" => array(
+				"label" => "text",
+				"dbtype" => "text",
+				"definition" => "text CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL",
+			),
+			"longtext" => array(
+				"label" => "long text",
+				"dbtype" => "longtext",
+				"definition" => "longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL",
+			),
+		);
+
+		return $output;
 	}
 
 	private function get_data_type_prefix($data_type) {
@@ -931,6 +1001,15 @@ class hm_mappings_library extends hmeta_library_base {
 			return $type;
 		} else {
 			return "post";
+		}
+	}
+
+	private function is_type_supported($type) {
+		$supported_types = array("user", "post");
+		if(in_array($type,$supported_types)) {
+			return true;
+		} else {
+			return false;
 		}
 	}
 
