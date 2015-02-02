@@ -116,7 +116,7 @@ class hm_query_library extends hmeta_library_base {
 	}
 
 	public function extract_mapped_meta_keys($type, &$query_vars) {
-		$meta_query = $query_vars["meta_query"];
+		$meta_query = (empty($query_vars["meta_query"]) ? false : $query_vars["meta_query"]);
 
 		$this->model("hm_settings_model");
 		$this->library("hm_mappings_library");

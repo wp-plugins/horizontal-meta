@@ -101,7 +101,7 @@ if(!class_exists("hmeta_controller_base")) {
 		 */
 		function apply_generic_notices() {
 			@session_start();
-			$generice_notice = $_SESSION["notice"];
+			$generice_notice = (empty($_SESSION["notice"]) ? "" : $_SESSION["notice"]);
 			if(!empty($_REQUEST["notice"])) $generice_notice = $_REQUEST["notice"];
 
 			if(!empty($generice_notice)) {

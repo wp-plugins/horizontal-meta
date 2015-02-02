@@ -7,7 +7,7 @@ Requires at least: 3.2
 Tested up to: 4.0.1
 Stable tag: trunk
 Homepage: http://www.horizontalmeta.com/
-Version: 2.3.0
+Version: 2.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -86,6 +86,9 @@ A. By default when the plugin is first installed, Horizontal Meta will not inter
 5. Options Screen.
 
 == Changelog ==
+
+= 2.3.1 =
+* FIXED: PHP Notices when debug mode is activated.
 
 = 2.3.0 =
 * NOTE: Horizontal Meta is not compatible with advanced querying features available in WordPress 4.1 and later.

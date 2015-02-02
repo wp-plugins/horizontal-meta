@@ -3,7 +3,7 @@
 Plugin Name: Horizontal Meta
 Plugin URI: http://wordpress.org/plugins/horizontal-meta/
 Description: Alters the way WordPress handles meta data to allow for query-able data-typed fields and performance.
-Version: 2.3.0
+Version: 2.3.1
 Author: Nathan Franklin
 Author URI: http://www.nathanfranklin.com.au/
 License: GPLv2 or later
